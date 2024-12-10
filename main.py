@@ -1,6 +1,7 @@
 # Bot version 1.0.1
 import os
 import sys
+import signal
 from datetime import datetime, timedelta
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
@@ -15,6 +16,16 @@ print(f"Starting bot...")
 
 # Przechowywanie odpowiedzi (w prostej wersji - w pamięci)
 attendance = {}
+
+# Obsługa zamykania
+def signal_handler(signum, frame):
+    print('Shutting down bot...')
+    sys.exit(0)
+
+signal.signal(signal.SIGINT, signal_handler)
+signal.signal(signal.SIGTERM, signal_handler)
+
+# Reszta kodu pozostaje bez zmian...
 
 async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Komenda startowa"""
