@@ -5,7 +5,7 @@ from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
 # Podstawowa konfiguracja
-BOT_TOKEN = "TWÓJ_TOKEN"
+BOT_TOKEN = os.environ.get('BOT_TOKEN')
 CHAT_ID = "ID_GRUPY" # Dodamy później
 
 # Przechowywanie odpowiedzi (w prostej wersji - w pamięci)
