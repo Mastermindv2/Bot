@@ -1,12 +1,17 @@
 # Bot version 1.0.1
 import os
+import sys
 from datetime import datetime, timedelta
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, ContextTypes
 
-# Podstawowa konfiguracja
+# Sprawdzanie tokena
 BOT_TOKEN = os.environ.get('BOT_TOKEN')
-CHAT_ID = "ID_GRUPY" # Dodamy później
+if not BOT_TOKEN:
+    print("Error: No BOT_TOKEN provided in environment variables")
+    sys.exit(1)
+
+print(f"Starting bot...")
 
 # Przechowywanie odpowiedzi (w prostej wersji - w pamięci)
 attendance = {}
