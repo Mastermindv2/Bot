@@ -1,3 +1,4 @@
+# Bot version 1.0.1
 import os
 from datetime import datetime, timedelta
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
